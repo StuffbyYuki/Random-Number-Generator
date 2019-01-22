@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
+    
+    @IBOutlet weak var numLabel: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func numGeneratePressed(_ sender: UIButton) {
+        
+        let num = Int.random(in: 1...10)
+        
+        
+    }
+    
 }
 
