@@ -22,8 +22,10 @@ class ViewController: UIViewController {
 
     @IBAction func numGeneratePressed(_ sender: UIButton) {
         
-        let num = Int.random(in: 1...10)
+//        let label = UILabel()
         
+        let num = Int.random(in: 1...10)
+        numLabel.setTitle(String(num), for: .normal)
         
     }
     
