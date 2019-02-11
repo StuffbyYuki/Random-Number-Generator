@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A4DE3E221F97A9F00934066 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4DE3E121F97A9F00934066 /* ViewController2.swift */; };
 		8AFDF81821F6EED2009C5A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFDF81721F6EED2009C5A98 /* AppDelegate.swift */; };
 		8AFDF81A21F6EED2009C5A98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFDF81921F6EED2009C5A98 /* ViewController.swift */; };
 		8AFDF81D21F6EED2009C5A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AFDF81B21F6EED2009C5A98 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A4DE3E121F97A9F00934066 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		8AFDF81421F6EED2009C5A98 /* RandomNumberGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomNumberGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFDF81721F6EED2009C5A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AFDF81921F6EED2009C5A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				8AFDF81721F6EED2009C5A98 /* AppDelegate.swift */,
 				8AFDF81921F6EED2009C5A98 /* ViewController.swift */,
+				8A4DE3E121F97A9F00934066 /* ViewController2.swift */,
 				8AFDF81B21F6EED2009C5A98 /* Main.storyboard */,
 				8AFDF81E21F6EED5009C5A98 /* Assets.xcassets */,
 				8AFDF82021F6EED5009C5A98 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				8AFDF81A21F6EED2009C5A98 /* ViewController.swift in Sources */,
 				8AFDF81821F6EED2009C5A98 /* AppDelegate.swift in Sources */,
+				8A4DE3E221F97A9F00934066 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

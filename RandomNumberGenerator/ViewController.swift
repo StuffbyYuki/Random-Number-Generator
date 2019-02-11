@@ -8,24 +8,55 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MinMaxChangeDelegate {
+    
+    
+  
+    
 
     
-    
+    var minNum = 1
+    var maxNum = 100
     
     @IBOutlet weak var numLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
     }
 
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destinationVC = segue.destination as! ViewController2
+//        destinationVC.delete(self)
+//    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSettings"{
+            let destinationVC = segue.destination as! ViewController2
+            destinationVC.delegate = self
+        }
+    }
+    
+    
+    func userEnterMinMax(min: Int, max: Int) {
+        
+        minNum = min
+        maxNum = max
+        print(minNum, maxNum)
+        
+    }
+    
+    
     @IBAction func numGeneratePressed(_ sender: UIButton) {
         
-//        let label = UILabel()
         
-        let num = Int.random(in: 1...10)
+        userEnterMinMax(min: minNum, max: maxNum)
+        let num = Int.random(in: minNum...maxNum)
         numLabel.setTitle(String(num), for: .normal)
+
+        
         
     }
     
