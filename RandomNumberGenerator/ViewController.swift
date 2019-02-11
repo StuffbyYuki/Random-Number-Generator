@@ -25,12 +25,10 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
        
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destinationVC = segue.destination as! ViewController2
-//        destinationVC.delete(self)
-//    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSettings"{
@@ -51,14 +49,12 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
     @IBAction func numGeneratePressed(_ sender: UIButton) {
         
-        
         userEnterMinMax(min: minNum, max: maxNum)
         let num = Int.random(in: minNum...maxNum)
         numLabel.setTitle(String(num), for: .normal)
-
-        
         
     }
+    
     
 }
 

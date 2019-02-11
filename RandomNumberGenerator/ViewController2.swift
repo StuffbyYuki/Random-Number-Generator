@@ -29,13 +29,16 @@ class ViewController2: UIViewController {
         
     }
     
-
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
 
     
     @IBAction func settingsSaved(_ sender: UIButton) {
         
-        if let minEntered: Int? = Int(minTextFiled.text!), let maxEntered: Int? = Int(maxTextField.text!) {
-            delegate?.userEnterMinMax(min: minEntered!, max: maxEntered!)
+        if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
+            delegate?.userEnterMinMax(min: minEntered ?? 1, max: maxEntered ?? 100)
         self.dismiss(animated: true, completion: nil)
         } else {
             print("error in updating the new min and max...")
