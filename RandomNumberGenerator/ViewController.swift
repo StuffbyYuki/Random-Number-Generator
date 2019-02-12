@@ -51,7 +51,6 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         
         minNum = min
         maxNum = max
-//        print(minNum, maxNum)
         
     }
     

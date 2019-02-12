@@ -75,22 +75,33 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
         if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
             
-            delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
-            self.view.endEditing(true)
-            self.dismiss(animated: true, completion: nil)
+            if minEntered >= maxEntered {
+                let alert = UIAlertController(title: "Error", message: "Min has to be bigger than Max", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
+//                    print(action)
+                }
+                
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+                
+            } else {
+                
+                delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
+                self.view.endEditing(true)
+                self.dismiss(animated: true, completion: nil)
+                
+            }
+
             
         } else {
             
             let alert = UIAlertController(title: "Error", message: "Please enter a number", preferredStyle: .alert)
             
             let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
-                
-                print("error in updating the new min and max...")
-                
+//                print("error in updating the new min and max...")
             }
             
             alert.addAction(action)
-            
             present(alert, animated: true, completion: nil)
             
         }
