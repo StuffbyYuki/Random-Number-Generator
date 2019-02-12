@@ -33,15 +33,28 @@ class ViewController2: UIViewController {
         return .lightContent
     }
     
-
     
     @IBAction func settingsSaved(_ sender: UIButton) {
         
         if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
-            delegate?.userEnterMinMax(min: minEntered ?? 1, max: maxEntered ?? 100)
+            
+            delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
         self.dismiss(animated: true, completion: nil)
+            
         } else {
-            print("error in updating the new min and max...")
+            
+            let alert = UIAlertController(title: "Error", message: "Please enter a number", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
+                
+              print("error in updating the new min and max...")
+                
+            }
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+            
         }
     }
     
