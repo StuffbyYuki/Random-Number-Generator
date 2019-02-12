@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, MinMaxChangeDelegate {
     
+
     var minNum = 1
     var maxNum = 100
+    
     
     @IBOutlet weak var numLabel: UIButton!
     
@@ -20,8 +22,18 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
        
         numLabel.titleLabel?.adjustsFontSizeToFitWidth = true
         
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
+//        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+//        view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        view.addGestureRecognizer(swipeLeft)
+        
+    
     }
 
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
@@ -56,16 +68,28 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         
     }
     
+    
+    
     @IBAction func numGeneratePressed(_ sender: UIButton) {
         
         newNums()
-        
+    
 //        present(.animation, animated: true, completion: nil)
      
-        
-    
     }
     
+    @objc func responseToSwipeGesture(gesture: UISwipeGestureRecognizer){
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+//            case UISwipeGestureRecognizer.Direction.right:
+//                print("Swiped right")
+            case UISwipeGestureRecognizer.Direction.left:
+                print("Swiped left")
+            default:
+                break
+            }
+        }
+    }
     
 }
 
