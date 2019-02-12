@@ -38,10 +38,11 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
         self.dismiss(animated: true, completion: nil)
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
-            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-            view.addGestureRecognizer(swipeRight)
-        
+//
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
+//            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+//            view.addGestureRecognizer(swipeRight)
+//
         
     }
     
@@ -65,26 +66,8 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     
     @IBAction func settingsSaved(_ sender: UIButton) {
         
-        if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
-            
-            delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
-        self.dismiss(animated: true, completion: nil)
-            
-        } else {
-            
-            let alert = UIAlertController(title: "Error", message: "Please enter a number", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
-                
-              print("error in updating the new min and max...")
-                
-            }
-            
-            alert.addAction(action)
-            
-            present(alert, animated: true, completion: nil)
-            
-        }
+        updateNewNums()
+       
     }
     
     
@@ -93,6 +76,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
             
             delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
+            self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
             
         } else {
@@ -113,18 +97,18 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc func responseToSwipeGesture(gesture: UISwipeGestureRecognizer){
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-                case UISwipeGestureRecognizer.Direction.right:
-                    print("Swiped right")
-//            case UISwipeGestureRecognizer.Direction.left:
-//                print("Swiped left")
-                default:
-                    break
-            }
-        }
-    }
+//    @objc func responseToSwipeGesture(gesture: UISwipeGestureRecognizer){
+//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+//            switch swipeGesture.direction {
+//                case UISwipeGestureRecognizer.Direction.right:
+//                    print("Swiped right")
+////            case UISwipeGestureRecognizer.Direction.left:
+////                print("Swiped left")
+//                default:
+//                    break
+//            }
+//        }
+//    }
     
 
 }
