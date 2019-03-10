@@ -13,9 +13,11 @@
 		8AFDF81D21F6EED2009C5A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AFDF81B21F6EED2009C5A98 /* Main.storyboard */; };
 		8AFDF81F21F6EED5009C5A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AFDF81E21F6EED5009C5A98 /* Assets.xcassets */; };
 		8AFDF82221F6EED5009C5A98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AFDF82021F6EED5009C5A98 /* LaunchScreen.storyboard */; };
+		8E90460941DAC625EA2816B8 /* Pods_RandomNumberGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D233F14D5FAACFCA94C18DA /* Pods_RandomNumberGenerator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		445E010031E34C379E99C33D /* Pods-RandomNumberGenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomNumberGenerator.release.xcconfig"; path = "Pods/Target Support Files/Pods-RandomNumberGenerator/Pods-RandomNumberGenerator.release.xcconfig"; sourceTree = "<group>"; };
 		8A4DE3E121F97A9F00934066 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		8AFDF81421F6EED2009C5A98 /* RandomNumberGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomNumberGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFDF81721F6EED2009C5A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		8AFDF81E21F6EED5009C5A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AFDF82121F6EED5009C5A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AFDF82321F6EED5009C5A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D233F14D5FAACFCA94C18DA /* Pods_RandomNumberGenerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomNumberGenerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBA55717E89873FCABCEE4F5 /* Pods-RandomNumberGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomNumberGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomNumberGenerator/Pods-RandomNumberGenerator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E90460941DAC625EA2816B8 /* Pods_RandomNumberGenerator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		399FF8E60AADDF17B4D43063 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBA55717E89873FCABCEE4F5 /* Pods-RandomNumberGenerator.debug.xcconfig */,
+				445E010031E34C379E99C33D /* Pods-RandomNumberGenerator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8AFDF80B21F6EED2009C5A98 = {
 			isa = PBXGroup;
 			children = (
 				8AFDF81621F6EED2009C5A98 /* RandomNumberGenerator */,
 				8AFDF81521F6EED2009C5A98 /* Products */,
+				399FF8E60AADDF17B4D43063 /* Pods */,
+				AFF90711D26364FC354972A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = RandomNumberGenerator;
 			sourceTree = "<group>";
 		};
+		AFF90711D26364FC354972A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D233F14D5FAACFCA94C18DA /* Pods_RandomNumberGenerator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AFDF82621F6EED5009C5A98 /* Build configuration list for PBXNativeTarget "RandomNumberGenerator" */;
 			buildPhases = (
+				A14306C3485019B62A7A7945 /* [CP] Check Pods Manifest.lock */,
 				8AFDF81021F6EED2009C5A98 /* Sources */,
 				8AFDF81121F6EED2009C5A98 /* Frameworks */,
 				8AFDF81221F6EED2009C5A98 /* Resources */,
@@ -132,6 +157,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A14306C3485019B62A7A7945 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RandomNumberGenerator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8AFDF81021F6EED2009C5A98 /* Sources */ = {
@@ -284,6 +334,7 @@
 		};
 		8AFDF82721F6EED5009C5A98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBA55717E89873FCABCEE4F5 /* Pods-RandomNumberGenerator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +353,7 @@
 		};
 		8AFDF82821F6EED5009C5A98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 445E010031E34C379E99C33D /* Pods-RandomNumberGenerator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

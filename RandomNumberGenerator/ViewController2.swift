@@ -18,7 +18,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     
    
     
-    @IBOutlet weak var minTextFiled: UITextField!
+    @IBOutlet weak var minTextField: UITextField!
     @IBOutlet weak var maxTextField: UITextField!
 
     
@@ -26,8 +26,11 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        minTextFiled.delegate = self
+        minTextField.delegate = self
         maxTextField.delegate = self
+        
+        minTextField.keyboardType = .numberPad
+        maxTextField.keyboardType = .numberPad
         
     }
     
@@ -73,7 +76,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     
     func updateNewNums(){
         
-        if let minEntered: Int = Int(minTextFiled.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
+        if let minEntered: Int = Int(minTextField.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
             
             if minEntered >= maxEntered {
                 let alert = UIAlertController(title: "Error", message: "Min has to be bigger than Max", preferredStyle: .alert)
