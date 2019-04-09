@@ -26,11 +26,20 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       setupTextField()
+        
+    }
+    
+    func setupTextField(){
         minTextField.delegate = self
         maxTextField.delegate = self
         
         minTextField.keyboardType = .numberPad
         maxTextField.keyboardType = .numberPad
+        
+        minTextField.adjustsFontSizeToFitWidth = true
+        maxTextField.adjustsFontSizeToFitWidth = true
+        
         
     }
     
@@ -56,7 +65,9 @@ class ViewController2: UIViewController, UITextFieldDelegate {
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.view.endEditing(true)
+        
     }
     
     @IBAction func settingsSaved(_ sender: UIButton) {
@@ -71,9 +82,9 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         if let minEntered: Int = Int(minTextField.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "10") {
             
             if minEntered >= maxEntered {
-                let alert = UIAlertController(title: "Error", message: "Min has to be bigger than Max", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "Max has to be bigger than Min", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
-//                    print(action)
+
                 }
                 
                 alert.addAction(action)
@@ -90,10 +101,10 @@ class ViewController2: UIViewController, UITextFieldDelegate {
             
         } else {
             
-            let alert = UIAlertController(title: "Error", message: "Please enter a number", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Please enter a legitimate number", preferredStyle: .alert)
             
             let action = UIAlertAction(title: "Dismiss", style: .default) { (action) in
-//                print("error in updating the new min and max...")
+            
             }
             
             alert.addAction(action)

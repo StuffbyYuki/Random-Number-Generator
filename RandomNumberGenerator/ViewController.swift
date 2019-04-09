@@ -23,16 +23,27 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
     
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var numLabel: UIButton!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         numberLabel.adjustsFontSizeToFitWidth = true
-      
 
     
     }
+
+    
+//    func makeLabelFadeInOut(){
+//        if fadingLabel.alpha == 0 {
+//            UILabel.animate(withDuration: 1.5, delay: 0.2, options: .curveEaseOut, animations: {
+//                self.fadingLabel.alpha = 1
+//            })
+//        }
+//    }
+    
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +51,7 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         endValue = maxNum
         nowCounting = true
         countingNumberAnimation()
+        numberLabel.text = "0"
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -57,13 +69,7 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
     func countingNumberAnimation(){
         
-       
-        
-     
-            print("Nowcount is \(nowCounting)")
-        
-        
-        
+    
         if nowCounting == true {
             
             displayLink?.invalidate()

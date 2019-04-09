@@ -44,9 +44,8 @@
                                     <segue destination="ZP2-jY-gBQ" kind="show" identifier="goToSettings" id="kQW-Vd-w4W"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-VK-fpU">
-                                <rect key="frame" x="5" y="0.0" width="365" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-VK-fpU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="200"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -59,6 +58,10 @@
                             <constraint firstItem="hIs-JN-XCw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fes-Sn-pAi"/>
                             <constraint firstItem="r8o-x1-KjA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KrB-ty-CLh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hIs-JN-XCw" secondAttribute="trailing" constant="10" id="SHf-kg-5ep"/>
+                            <constraint firstItem="gw7-VK-fpU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kRB-fL-n9e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gw7-VK-fpU" secondAttribute="trailing" id="oom-uW-GiK"/>
+                            <constraint firstItem="gw7-VK-fpU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qXH-Va-LPr"/>
+                            <constraint firstItem="gw7-VK-fpU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xTE-hH-tWo"/>
                             <constraint firstItem="r8o-x1-KjA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z7F-ZJ-bhy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -71,7 +74,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="numLabel" destination="r8o-x1-KjA" id="zes-oZ-ugf"/>
                         <outlet property="numberLabel" destination="gw7-VK-fpU" id="hsk-5x-WHH"/>
                     </connections>
                 </viewController>
@@ -101,67 +103,73 @@
                                     <action selector="backToMain:" destination="ZP2-jY-gBQ" eventType="touchUpInside" id="UKn-2t-BAv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-Og-m4E">
-                                <rect key="frame" x="120" y="313.5" width="135" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="d7v-T0-Xjr"/>
-                                    <constraint firstAttribute="height" constant="40" id="miI-3c-VuC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="settingsSaved:" destination="ZP2-jY-gBQ" eventType="touchUpInside" id="JyJ-kY-Cc4"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-zp-DVa">
-                                <rect key="frame" x="100.5" y="84.5" width="174.5" height="179"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-zp-DVa">
+                                <rect key="frame" x="97.5" y="90" width="180" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-Wu-Sjn">
-                                        <rect key="frame" x="66.5" y="0.0" width="41.5" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <rect key="frame" x="68.5" y="0.0" width="43" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter minmum number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ByU-RJ-YAw">
-                                        <rect key="frame" x="3" y="49.5" width="168" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter minmum number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ByU-RJ-YAw">
+                                        <rect key="frame" x="0.0" y="42.5" width="180" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AG5-z8-TGk"/>
+                                            <constraint firstAttribute="width" constant="180" id="uk5-aQ-31Q"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCe-7E-fvc">
-                                        <rect key="frame" x="63" y="99.5" width="48.5" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <rect key="frame" x="65.5" y="87.5" width="49" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter maximum number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo7-5i-1G7">
-                                        <rect key="frame" x="0.0" y="149" width="174.5" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter maximum number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jo7-5i-1G7">
+                                        <rect key="frame" x="0.0" y="130" width="180" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="5at-hJ-I47"/>
+                                            <constraint firstAttribute="height" constant="30" id="VhF-Vq-tSk"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-Og-m4E">
+                                <rect key="frame" x="97.5" y="300" width="180" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Igf-hu-bYb"/>
+                                    <constraint firstAttribute="height" constant="40" id="at8-Wo-zp7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="settingsSaved:" destination="ZP2-jY-gBQ" eventType="touchUpInside" id="JyJ-kY-Cc4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="0RG-Og-m4E" firstAttribute="top" secondItem="AQH-zp-DVa" secondAttribute="bottom" constant="50" id="Jkz-Pp-gTN"/>
-                            <constraint firstItem="AQH-zp-DVa" firstAttribute="centerX" secondItem="CRD-zx-cbg" secondAttribute="centerX" id="NZ5-6Q-Npq"/>
+                            <constraint firstItem="0RG-Og-m4E" firstAttribute="top" secondItem="AQH-zp-DVa" secondAttribute="bottom" constant="50" id="FP8-G4-rOA"/>
+                            <constraint firstItem="0RG-Og-m4E" firstAttribute="centerX" secondItem="CRD-zx-cbg" secondAttribute="centerX" id="Fcq-cC-eTs"/>
                             <constraint firstItem="Win-Id-ULa" firstAttribute="leading" secondItem="sE3-YW-XRo" secondAttribute="leading" constant="10" id="O7b-ZW-PCq"/>
                             <constraint firstItem="Win-Id-ULa" firstAttribute="top" secondItem="sE3-YW-XRo" secondAttribute="top" id="RsA-2x-6AP"/>
-                            <constraint firstItem="0RG-Og-m4E" firstAttribute="centerY" secondItem="CRD-zx-cbg" secondAttribute="centerY" id="Wb3-Dw-8zS"/>
-                            <constraint firstItem="0RG-Og-m4E" firstAttribute="centerX" secondItem="CRD-zx-cbg" secondAttribute="centerX" id="cxy-Hb-Jyq"/>
-                            <constraint firstItem="0RG-Og-m4E" firstAttribute="centerX" secondItem="CRD-zx-cbg" secondAttribute="centerX" id="gm8-Z8-VIR"/>
-                            <constraint firstItem="0RG-Og-m4E" firstAttribute="centerY" secondItem="CRD-zx-cbg" secondAttribute="centerY" id="obu-u2-HVV"/>
+                            <constraint firstItem="AQH-zp-DVa" firstAttribute="centerX" secondItem="CRD-zx-cbg" secondAttribute="centerX" id="VeS-2g-yEB"/>
+                            <constraint firstItem="AQH-zp-DVa" firstAttribute="top" secondItem="sE3-YW-XRo" secondAttribute="top" constant="70" id="lnE-K2-ObQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sE3-YW-XRo"/>
                     </view>
