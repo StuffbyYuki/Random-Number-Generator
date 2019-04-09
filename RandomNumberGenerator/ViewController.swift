@@ -12,27 +12,35 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
 
     var minNum = 1
-    var maxNum = 100
+    var maxNum = 10
+    
+    var startValue = 0
+    var endValue = 10
+    
+    var nowCounting: Bool = true
+    
+    var displayLink: CADisplayLink?
     
     
+    @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        numLabel.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-////        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
-////        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-////        view.addGestureRecognizer(swipeRight)
-//
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
-//        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-//        view.addGestureRecognizer(swipeLeft)
-        
+        numberLabel.adjustsFontSizeToFitWidth = true
+      
+
     
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startValue = minNum
+        endValue = maxNum
+        nowCounting = true
+        countingNumberAnimation()
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
@@ -47,6 +55,52 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     }
     
     
+    func countingNumberAnimation(){
+        
+       
+        
+     
+            print("Nowcount is \(nowCounting)")
+        
+        
+        
+        if nowCounting == true {
+            
+            displayLink?.invalidate()
+            displayLink = nil
+
+            let num = Int.random(in: minNum...maxNum)
+            numberLabel.text = String(num)
+            
+        } else if nowCounting == false {
+            
+            displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
+            displayLink?.add(to: .main, forMode: .default)
+            
+        }
+        
+        if nowCounting == false {
+            
+            nowCounting = true
+            
+        } else {
+            
+            nowCounting = false
+            
+        }
+        
+        
+        
+    }
+    
+    @objc func handleUpdate(){
+
+        numberLabel.text = String(startValue)
+        startValue = Int.random(in: minNum...maxNum)
+        
+    }
+    
+    
     func userEnterMinMax(min: Int, max: Int) {
         
         minNum = min
@@ -56,39 +110,34 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        newNums()
+        getNewNums()
     }
     
-    func newNums(){
+    
+    
+    
+    
+    func getNewNums(){
         
         userEnterMinMax(min: minNum, max: maxNum)
-        let num = Int.random(in: minNum...maxNum)
-        numLabel.setTitle(String(num), for: .normal)
         
+        countingNumberAnimation()
+        
+        print(nowCounting)
+        
+       
+   
     }
     
     
     
     @IBAction func numGeneratePressed(_ sender: UIButton) {
         
-        newNums()
-    
-//        present(.animation, animated: true, completion: nil)
-     
+        getNewNums()
+        
     }
     
-//    @objc func responseToSwipeGesture(gesture: UISwipeGestureRecognizer){
-//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-//            switch swipeGesture.direction {
-////            case UISwipeGestureRecognizer.Direction.right:
-////                print("Swiped right")
-//            case UISwipeGestureRecognizer.Direction.left:
-//                print("Swiped left")
-//            default:
-//                break
-//            }
-//        }
-//    }
+
     
 }
 

@@ -37,15 +37,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     
     @IBAction func backToMain(_ sender: UIButton) {
         
-        
-        
         self.dismiss(animated: true, completion: nil)
-        
-//
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(responseToSwipeGesture))
-//            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-//            view.addGestureRecognizer(swipeRight)
-//
         
     }
     
@@ -76,7 +68,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     
     func updateNewNums(){
         
-        if let minEntered: Int = Int(minTextField.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "100") {
+        if let minEntered: Int = Int(minTextField.text ?? "1"), let maxEntered: Int = Int(maxTextField.text ?? "10") {
             
             if minEntered >= maxEntered {
                 let alert = UIAlertController(title: "Error", message: "Min has to be bigger than Max", preferredStyle: .alert)
@@ -110,19 +102,6 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
-//    @objc func responseToSwipeGesture(gesture: UISwipeGestureRecognizer){
-//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-//            switch swipeGesture.direction {
-//                case UISwipeGestureRecognizer.Direction.right:
-//                    print("Swiped right")
-////            case UISwipeGestureRecognizer.Direction.left:
-////                print("Swiped left")
-//                default:
-//                    break
-//            }
-//        }
-//    }
     
 
 }
