@@ -18,6 +18,7 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     var endValue = 10
     
     var nowCounting: Bool = true
+
     
     var displayLink: CADisplayLink?
     
@@ -25,33 +26,54 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     @IBOutlet weak var numberLabel: UILabel!
     
     
+    @IBOutlet weak var labelFadingInOut: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         numberLabel.adjustsFontSizeToFitWidth = true
+       fadeInOut()
+    }
 
+  
+    func fadeInOut(){
+
+        
+            UIView.animate(withDuration: 1.5, delay: 0.0, options: [UIView.AnimationOptions.curveEaseOut,UIView.AnimationOptions.autoreverse, UIView.AnimationOptions.repeat], animations: {
+                self.labelFadingInOut.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                //Once the label is completely invisible, set the text and fade it back in
+                self.labelFadingInOut.text = "Tap or Shake"
+                
+                // Fade in
+                UIView.animate(withDuration: 1.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                    self.labelFadingInOut.alpha = 1.0
+                    
+                }, completion: nil)
+            })
     
     }
 
     
-//    func makeLabelFadeInOut(){
-//        if fadingLabel.alpha == 0 {
-//            UILabel.animate(withDuration: 1.5, delay: 0.2, options: .curveEaseOut, animations: {
-//                self.fadingLabel.alpha = 1
-//            })
-//        }
-//    }
-    
-
-    
     override func viewWillAppear(_ animated: Bool) {
+        
+        print("view will appear")
+        
+        labelFadingInOut.isHidden = false
+        fadeInOut()
+        
         startValue = minNum
         endValue = maxNum
         nowCounting = true
         countingNumberAnimation()
-        numberLabel.text = "0"
+        numberLabel.text = "?"
+    
+        
+        
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -63,6 +85,8 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         if segue.identifier == "goToSettings"{
             let destinationVC = segue.destination as! ViewController2
             destinationVC.delegate = self
+            destinationVC.minToDisplay = String(minNum)
+            destinationVC.maxToDisplay = String(maxNum)
         }
     }
     
@@ -94,9 +118,6 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
             nowCounting = false
             
         }
-        
-        
-        
     }
     
     @objc func handleUpdate(){
@@ -125,13 +146,13 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     
     func getNewNums(){
         
+        labelFadingInOut.isHidden = true
+        
         userEnterMinMax(min: minNum, max: maxNum)
         
         countingNumberAnimation()
         
-        print(nowCounting)
-        
-       
+        //print(nowCounting)
    
     }
     

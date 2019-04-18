@@ -15,20 +15,32 @@ protocol MinMaxChangeDelegate{
 class ViewController2: UIViewController, UITextFieldDelegate {
 
     var delegate : MinMaxChangeDelegate?
+  
     
-   
     
     @IBOutlet weak var minTextField: UITextField!
     @IBOutlet weak var maxTextField: UITextField!
-
+    
+    
+    var minToDisplay: String?
+    var maxToDisplay: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
        setupTextField()
+      
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        minTextField.text = minToDisplay
+        maxTextField.text = maxToDisplay
+    }
+    
+    
     
     func setupTextField(){
         minTextField.delegate = self
@@ -92,9 +104,14 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 
             } else {
                 
+                //min = String(minEntered)
+                //max = String(maxEntered)
+                
                 delegate?.userEnterMinMax(min: minEntered , max: maxEntered)
                 self.view.endEditing(true)
                 self.dismiss(animated: true, completion: nil)
+                
+              
                 
             }
 
