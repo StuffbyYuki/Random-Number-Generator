@@ -18,9 +18,9 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
     var endValue = 10
     
     var nowCounting: Bool = true
-
     
     var displayLink: CADisplayLink?
+    
     
     
     @IBOutlet weak var numberLabel: UILabel!
@@ -33,14 +33,29 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         super.viewDidLoad()
        
         numberLabel.adjustsFontSizeToFitWidth = true
-       fadeInOut()
+        setTimer()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("view will appear")
+        
+        labelFadingInOut.isHidden = false
+        
+        
+        startValue = minNum
+        endValue = maxNum
+        nowCounting = true
+        countingNumberAnimation()
+        numberLabel.text = "?"
+        
+        fadeInOut()
     }
 
   
     func fadeInOut(){
-
-        
-            UIView.animate(withDuration: 1.5, delay: 0.0, options: [UIView.AnimationOptions.curveEaseOut,UIView.AnimationOptions.autoreverse, UIView.AnimationOptions.repeat], animations: {
+            UIView.animate(withDuration: 1.7, delay: 0.0, options: [UIView.AnimationOptions.curveEaseOut,UIView.AnimationOptions.autoreverse, UIView.AnimationOptions.repeat], animations: {
                 self.labelFadingInOut.alpha = 0.0
             }, completion: {
                 (finished: Bool) -> Void in
@@ -51,30 +66,26 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
                 // Fade in
                 UIView.animate(withDuration: 1.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                     self.labelFadingInOut.alpha = 1.0
-                    
                 }, completion: nil)
             })
+    }
     
+    func setTimer(){
+        var runCount = 0
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            //print("Timer fired!")
+            runCount += 1
+            
+            if runCount == 6 {
+                timer.invalidate()
+                self.fadeInOut()
+            }
+        }
     }
 
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        print("view will appear")
-        
-        labelFadingInOut.isHidden = false
-        fadeInOut()
-        
-        startValue = minNum
-        endValue = maxNum
-        nowCounting = true
-        countingNumberAnimation()
-        numberLabel.text = "?"
-    
-        
-        
-        
-    }
+ 
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
@@ -90,6 +101,7 @@ class ViewController: UIViewController, MinMaxChangeDelegate {
         }
     }
     
+
     
     func countingNumberAnimation(){
         
